@@ -4,7 +4,12 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    const baseUrl =
+      env.VITE_BASE_URL ||
+      env.BASE_URL ||
+      'fireboards_gemini_2';
     return {
+      base: baseUrl,
       server: {
         port: 3000,
         host: '0.0.0.0',
